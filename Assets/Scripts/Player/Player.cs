@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
     int deathCounter;
     int maximumKeys = 4;
     public int keyCounter;
-    Vector3 respawnPositon = new Vector3(-12f, 3.3f, -28.57f);
+    Vector3 respawnPositon = new Vector3(95f, 2.6f, -9f);
     public bool hasCollectedWrench;
 
     [Header("HUD")]
@@ -42,7 +42,19 @@ public class Player : MonoBehaviour
 
     void Die()
     {
-        transform.position = respawnPositon;
+        // Handle character controller if it exists
+        CharacterController cc = GetComponent<CharacterController>();
+        if (cc != null)
+        {
+            cc.enabled = false;
+            transform.position = respawnPositon;
+            cc.enabled = true;
+        }
+        else
+        {
+            transform.position = respawnPositon;
+        }
+
         deathCounter++;
         ShowStatusMessage("You Died.", 2f);
         AudioManager.Instance.PlaySound("Die");

@@ -88,7 +88,7 @@ public class PlayerInteractions : MonoBehaviour
             else if(player.hasCollectedWrench)     // if player has wrench
             {
                 AudioManager.Instance.PlaySound("Electricity");
-                player.statusText.text = "You Won.";
+                player.statusText.text = "Congratulations! You Won!";
             }
         }
     }
