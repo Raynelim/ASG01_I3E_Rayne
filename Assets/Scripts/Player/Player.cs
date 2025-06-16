@@ -60,17 +60,17 @@ public class Player : MonoBehaviour
         statusText.text = string.Empty;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Death"))
+        if (other.CompareTag("Death"))
         {
             Die();
         }
-        else if (collision.gameObject.CompareTag("Wrench") && !hasCollectedWrench)
+        else if (other.CompareTag("Wrench") && !hasCollectedWrench)
         {
             hasCollectedWrench = true;
             AudioManager.Instance.PlaySound("Pickup");
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
 
             if (!hasShownWrenchMessage)
             {
