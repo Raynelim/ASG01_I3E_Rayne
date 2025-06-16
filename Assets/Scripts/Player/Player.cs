@@ -4,7 +4,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     int deathCounter;
-    int maximumKeys = 3;
+    int maximumKeys = 4;
     public int keyCounter;
     Vector3 respawnPositon = new Vector3(-12f, 3.3f, -28.57f);
     public bool hasCollectedWrench;
@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
         if (keyCounter >= maximumKeys && !hasShownParkourMessage)
         {
             parkourArea.SetActive(true);
-            ShowStatusMessage("Parkour Course is now available.\nReach the top to get the wrench.", 4f);
+            ShowStatusMessage("You unlocked the final room\nFind your way up", 4f);
             hasShownParkourMessage = true;
         }
     }

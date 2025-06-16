@@ -33,4 +33,4 @@ public class Door : MonoBehaviour
         isOpen = !isOpen;
         AudioManager.Instance.PlaySound("Door");
     }
-}
+} 
